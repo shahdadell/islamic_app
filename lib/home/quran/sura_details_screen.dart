@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../../my_theme.dart';
 import 'item_sura_details.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
-  static const String routeName = "suradetails";
+  static const String routeName = "sura-detailers";
   const SuraDetailsScreen({super.key});
 
   @override
