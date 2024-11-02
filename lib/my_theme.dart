@@ -27,7 +27,7 @@ class MyTheme {
       ),
       titleSmall: TextStyle(
         fontSize: 25,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: blackColor,
       ),
     ),
