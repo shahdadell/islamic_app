@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic_app/home/hadeth/item_hadeth_name.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethTap extends StatefulWidget {
+  const HadethTap({super.key});
+
   @override
   State<HadethTap> createState() => _HadethTapState();
 }
@@ -26,7 +29,7 @@ class _HadethTapState extends State<HadethTap> {
             indent: 5,
           ),
           Text(
-            "Hadeth Name",
+            AppLocalizations.of(context)!.hadeth_name,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           Divider(

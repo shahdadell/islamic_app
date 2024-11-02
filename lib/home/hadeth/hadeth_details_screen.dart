@@ -7,6 +7,7 @@ class HadethDetailsScreen extends StatefulWidget {
   static const String routeName = "hadeth-detailers";
   const HadethDetailsScreen({super.key});
 
+
   @override
   State<HadethDetailsScreen> createState() => _HadethDetailsScreenState();
 }

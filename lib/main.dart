@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/home/hadeth/hadeth_tap.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'home/hadeth/hadeth_details_screen.dart';
 import 'home/homescreen/home_screen.dart';
 import 'home/quran/sura_details_screen.dart';
@@ -20,13 +20,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
       routes: {
-        SplashScreen.routeName : (context) => const SplashScreen() ,
-        HomeScreen.routeName : (context) => const HomeScreen(),
-        SuraDetailsScreen.routeName :(context) => const SuraDetailsScreen(),
-        HadethDetailsScreen.routeName :(context) => const HadethDetailsScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        SuraDetailsScreen.routeName: (context) => const SuraDetailsScreen(),
+        HadethDetailsScreen.routeName: (context) => const HadethDetailsScreen(),
       },
       theme: MyTheme.lightTheme,
+      locale: Locale('ar'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
-

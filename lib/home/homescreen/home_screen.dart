@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../hadeth/hadeth_tap.dart';
 import '../quran/quran_tab.dart';
 import '../radio/radio_tap.dart';
 import '../sebha/sebha_tap.dart';
 
-
 class HomeScreen extends StatefulWidget {
-  static const String routeName = "HomeScreen" ;
+  static const String routeName = "HomeScreen";
 
   const HomeScreen({super.key});
 
@@ -16,21 +15,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex = 0 ;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    var mediaQuery2 = MediaQuery.of(context).size ;
+    var mediaQuery2 = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Image.asset("assets/images/background.png",
+        Image.asset(
+          "assets/images/background.png",
           width: mediaQuery2.width,
           height: mediaQuery2.height,
           fit: BoxFit.cover,
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text("Islami",
+            title: Text(
+              AppLocalizations.of(context)!.app_title,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
@@ -39,42 +40,43 @@ class _HomeScreenState extends State<HomeScreen> {
               canvasColor: Theme.of(context).primaryColor,
             ),
             child: BottomNavigationBar(
-              currentIndex: selectedIndex ,
+                currentIndex: selectedIndex,
                 onTap: (index) {
-                selectedIndex = index ;
-                setState(() {
-
-                });
+                  selectedIndex = index;
+                  setState(() {});
                 },
-                items: const [
+                items: [
                   BottomNavigationBarItem(
-                      icon: ImageIcon(AssetImage("assets/images/quran1.png"),),
-                      label: "Quran",
+                    icon: ImageIcon(
+                      AssetImage("assets/images/quran1.png"),
+                    ),
+                    label: AppLocalizations.of(context)!.quran,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/hadeth1.png"),),
-                    label: "Hadeth",
+                    icon: ImageIcon(
+                      AssetImage("assets/images/hadeth1.png"),
+                    ),
+                    label: AppLocalizations.of(context)!.hadeth,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/radio1.png"),),
-                    label: "Radio",
+                    icon: ImageIcon(
+                      AssetImage("assets/images/radio1.png"),
+                    ),
+                    label: AppLocalizations.of(context)!.radio,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/sebha1.png"),),
-                    label: "Sebha",
+                    icon: ImageIcon(
+                      AssetImage("assets/images/sebha1.png"),
+                    ),
+                    label: AppLocalizations.of(context)!.sebha,
                   ),
-                ]
-            ),
+                ]),
           ),
           body: tabs[selectedIndex],
         ),
       ],
     );
   }
-  List<Widget> tabs = [
-     QuranTab(),
-      HadethTap(),
-      SebhaTap(),
-      RadioTap()
-  ];
+
+  List<Widget> tabs = [QuranTab(), HadethTap(), SebhaTap(), RadioTap()];
 }
