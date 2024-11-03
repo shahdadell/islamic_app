@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../my_theme.dart';
 import 'item_sura_details.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "sura-detailers";
@@ -17,7 +18,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
-    if(verses.isEmpty){
+    if (verses.isEmpty) {
       loadFile(args.index);
     }
     var mediaQuery2 = MediaQuery.of(context).size;
@@ -36,25 +37,62 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          body: verses.isEmpty ?
-          const Center(child: CircularProgressIndicator())
-          :
-          Container(
-            margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width*0.05,
-              vertical: MediaQuery.of(context).size.height*0.08,
-            ),
-            decoration: BoxDecoration(
-                color: MyTheme.whiteColor,
-              borderRadius: BorderRadius.circular(24)
-            ),
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return ItemSuraDetails(content: verses[index], index: index);
-              },
-              itemCount: verses.length,
-            ),
-          ),
+          body: verses.isEmpty
+              ? const Center(child: CircularProgressIndicator())
+              : Container(
+                  margin: const EdgeInsets.only(
+                      left: 30, right: 30, top: 30, bottom: 60),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(
+                            5.0,
+                            5.0,
+                          ),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                      color: MyTheme.whiteColor.withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(24)),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.play_circle,
+                            size: 32,
+                            color: Colors.black,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            AppLocalizations.of(context)!.sura_name,
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        color: Theme.of(context).primaryColor,
+                        thickness: 1.8,
+                        endIndent: 30,
+                        indent: 30,
+                        height: 15,
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return ItemSuraDetails(
+                                content: verses[index], index: index);
+                          },
+                          itemCount: verses.length,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
         ),
       ],
     );
@@ -65,9 +103,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         await rootBundle.loadString('assets/files/${index + 1}.txt');
     List<String> lines = content.split('\n');
     verses = lines;
-    setState(() {
-
-    });
+    setState(() {});
   }
 }
 

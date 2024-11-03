@@ -13,7 +13,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         HadethDetailsScreen.routeName: (context) => const HadethDetailsScreen(),
       },
       theme: MyTheme.lightTheme,
-      locale: Locale('ar'),
+      locale: const Locale('ar'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );

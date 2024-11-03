@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic_app/home/settings/setting_tab.dart';
 import '../hadeth/hadeth_tap.dart';
 import '../quran/quran_tab.dart';
 import '../radio/radio_tap.dart';
@@ -47,28 +48,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 items: [
                   BottomNavigationBarItem(
-                    icon: ImageIcon(
+                    icon: const ImageIcon(
+                      size: 30,
                       AssetImage("assets/images/quran1.png"),
                     ),
                     label: AppLocalizations.of(context)!.quran,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(
+                    icon: const ImageIcon(
+                      size: 30,
                       AssetImage("assets/images/hadeth1.png"),
                     ),
                     label: AppLocalizations.of(context)!.hadeth,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(
+                    icon: const ImageIcon(
+                      size: 30,
                       AssetImage("assets/images/radio1.png"),
                     ),
                     label: AppLocalizations.of(context)!.radio,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(
+                    icon: const ImageIcon(
+                      size: 30,
                       AssetImage("assets/images/sebha1.png"),
                     ),
                     label: AppLocalizations.of(context)!.sebha,
+                  ),
+                  BottomNavigationBarItem(
+                    icon: const ImageIcon(
+                      size: 30,
+                      AssetImage("assets/images/settings.png"),
+                    ),
+                    label: AppLocalizations.of(context)!.settings,
                   ),
                 ]),
           ),
@@ -78,5 +90,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTap(), SebhaTap(), RadioTap()];
+  List<Widget> tabs = [
+    QuranTab(),
+    const HadethTap(),
+    const RadioTap(),
+    const SebhaTap(),
+    const SettingTab()
+  ];
 }

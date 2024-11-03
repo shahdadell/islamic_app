@@ -129,35 +129,50 @@ class QuranTab extends StatelessWidget {
           Image.asset("assets/images/quranlogo2.png"),
           Divider(
             color: Theme.of(context).primaryColor,
-            thickness: 3,
-            endIndent: 5,
-            indent: 5,
+            thickness: 1.8,
+            endIndent: 10,
+            indent: 10,
+            height: 5,
           ),
-          Text(
-            AppLocalizations.of(context)!.sura_name,
-            style: Theme.of(context).textTheme.titleMedium,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.sura_name,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
+                width: 1.5,
+                height: 45,
+                color: Theme.of(context).primaryColor,
+              ),
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.sura_num,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
           ),
           Divider(
             color: Theme.of(context).primaryColor,
-            thickness: 3,
-            endIndent: 5,
-            indent: 5,
+            thickness: 1.8,
+            endIndent: 10,
+            indent: 10,
+            height: 5,
           ),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Theme.of(context).primaryColor,
-                  thickness: 3,
-                  endIndent: 5,
-                  indent: 5,
-                );
-              },
-              itemCount: names.length,
-              itemBuilder: (context, index) {
-                return ItemSuraName(name: names[index], index: index ,);
-              },
-            ),
+          ListView.builder(
+            itemCount: names.length,
+            itemBuilder: (context, index) {
+              return ItemSuraName(
+                name: names[index],
+                index: index,
+                // num: "${index + 1}",
+              );
+            },
           )
         ],
       ),

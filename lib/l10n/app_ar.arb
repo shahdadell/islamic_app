@@ -1,10 +1,19 @@
 {
-  "app_title" : "اسلامي" ,
+  "app_title" : "إسلامي" ,
   "quran" : "القران" ,
   "sebha" : "السبحة" ,
-  "radio" : "الاذاعة",
+  "radio" : "الإذاعة",
   "hadeth" : "الحديث",
-  "sura_name" : "اسم السورة",
-  "hadeth_name" : "اسم الحديث"
+  "sura_name" : "إسم السورة",
+  "sura_num" : "رقم السورة",
+  "hadeth_name" :"إسم الحديث" ,
+  "settings" : "الإعدادات",
+  "english" : "الإنجليزية" ,
+  "arabic" : "العربية" ,
+  "light" : "مضئ",
+  "dark" : "ليلي" ,
+  "theme" : "النمط",
+  "language" : "اللغة",
+  "holy_quran_radio" : "إذاعة القرآن الكريم"
 
 }

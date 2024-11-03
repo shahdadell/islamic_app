@@ -37,9 +37,21 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
           body: Container(
             margin: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.05,
-              vertical: MediaQuery.of(context).size.height * 0.08,
+              vertical: MediaQuery.of(context).size.height * 0.1,
+
             ),
             decoration: BoxDecoration(
+                boxShadow:  const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    offset: Offset(
+                      5.0,
+                      5.0,
+                    ),
+                    blurRadius: 20,
+                    spreadRadius: 2.0,
+                  ),
+                ],
                 color: MyTheme.whiteColor,
                 borderRadius: BorderRadius.circular(24)),
             child: ListView.builder(

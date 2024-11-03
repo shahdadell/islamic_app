@@ -7,11 +7,14 @@ class ItemHadethDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      content,
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.rtl,
-      style: Theme.of(context).textTheme.titleSmall,
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Text(
+        content,
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.rtl,
+        style: Theme.of(context).textTheme.titleSmall,
+      ),
     );
   }
 }
