@@ -24,7 +24,7 @@ class _HadethTapState extends State<HadethTap> {
           Image.asset("assets/images/hadith_header2.png"),
           Divider(
             color: Theme.of(context).primaryColor,
-            thickness: 3,
+            thickness: 1.8,
             endIndent: 5,
             indent: 5,
           ),
@@ -34,7 +34,7 @@ class _HadethTapState extends State<HadethTap> {
           ),
           Divider(
             color: Theme.of(context).primaryColor,
-            thickness: 3,
+            thickness: 1.8,
             endIndent: 5,
             indent: 5,
           ),
@@ -49,9 +49,9 @@ class _HadethTapState extends State<HadethTap> {
                     separatorBuilder: (context, index) {
                       return Divider(
                         color: Theme.of(context).primaryColor,
-                        thickness: 3,
-                        endIndent: 5,
-                        indent: 5,
+                        thickness: 2,
+                        endIndent: 55,
+                        indent: 55,
                       );
                     },
                     itemCount: ahadethList.length,

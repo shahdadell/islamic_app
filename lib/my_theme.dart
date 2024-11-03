@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   ///colors , light theme , dark theme
@@ -15,25 +16,27 @@ class MyTheme {
       centerTitle: true,
     ),
     textTheme: TextTheme(
-      titleMedium: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.w600,
+      titleLarge: GoogleFonts.elMessiri(
+        fontSize: 26,
+        fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleLarge: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.w700,
+      titleMedium: GoogleFonts.elMessiri(
+        fontSize: 23,
+        fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleSmall: TextStyle(
-        fontSize: 25,
+      titleSmall: GoogleFonts.elMessiri(
+        fontSize: 21,
         fontWeight: FontWeight.w500,
         color: blackColor,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedLabelStyle: const TextStyle(
+        fontSize: 19,
+      ),
       selectedItemColor: blackColor,
-      // unselectedItemColor: whiteColor,
     ),
   );
 }

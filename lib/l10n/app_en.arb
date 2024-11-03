@@ -5,6 +5,15 @@
   "radio" : "Radio",
   "hadeth" : "hadeth",
   "sura_name" : "SuraName",
-  "hadeth_name" : "Hadeth Name"
+  "sura_num" : "SuraNumber",
+  "hadeth_name" : "Hadeth Name" ,
+  "settings" : "Settings",
+  "english" : "English" ,
+  "arabic" : "Arabic" ,
+  "light" : "Light",
+  "dark" : "Dark" ,
+  "theme" : "Theme",
+  "language" : "Language",
+  "holy_quran_radio" : "Holy Quran Radio"
 
 }
