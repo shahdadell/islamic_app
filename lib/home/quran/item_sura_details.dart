@@ -8,7 +8,7 @@ class ItemSuraDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(5),
       child: Text(
         '$content${{index + 1}}',
         textAlign: TextAlign.center,

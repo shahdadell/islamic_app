@@ -164,15 +164,17 @@ class QuranTab extends StatelessWidget {
             indent: 10,
             height: 5,
           ),
-          ListView.builder(
-            itemCount: names.length,
-            itemBuilder: (context, index) {
-              return ItemSuraName(
-                name: names[index],
-                index: index,
-                // num: "${index + 1}",
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: names.length,
+              itemBuilder: (context, index) {
+                return ItemSuraName(
+                  name: names[index],
+                  index: index,
+                  num: "${index + 1}",
+                );
+              },
+            ),
           )
         ],
       ),

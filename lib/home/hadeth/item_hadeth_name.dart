@@ -8,17 +8,26 @@ class ItemHadethName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed(
-          HadethDetailsScreen.routeName,
-          arguments: hadeth,
-        );
-      },
-      child: Text(
-        hadeth.title,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.titleSmall,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            HadethDetailsScreen.routeName,
+            arguments: hadeth,
+          );
+        },
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                hadeth.title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

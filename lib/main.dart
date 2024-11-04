@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
-        SuraDetailsScreen.routeName: (context) => const SuraDetailsScreen(),
+        SuraDetailsScreen.routeName: (context) =>  SuraDetailsScreen(),
         HadethDetailsScreen.routeName: (context) => const HadethDetailsScreen(),
       },
       theme: MyTheme.lightTheme,
