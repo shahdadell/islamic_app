@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/home/hadeth/item_hadeth_details.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../my_theme.dart';
 import 'hadeth_tap.dart';
+import 'item_hadeth_details.dart';
 
 class HadethDetailsScreen extends StatefulWidget {
   static const String routeName = "hadeth-detailers";
@@ -23,6 +24,7 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
       children: [
         Image.asset(
           "assets/images/background.png",
+
           width: mediaQuery2.width,
           height: mediaQuery2.height,
           fit: BoxFit.cover,
@@ -34,31 +36,58 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          body: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05,
-              vertical: MediaQuery.of(context).size.height * 0.1,
-
-            ),
+          body:Container(
+            margin: const EdgeInsets.only(
+                left: 30, right: 30, top: 30, bottom: 60),
+            padding:
+            const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: BoxDecoration(
-                boxShadow:  const [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     offset: Offset(
                       5.0,
                       5.0,
                     ),
-                    blurRadius: 20,
-                    spreadRadius: 2.0,
+                    blurRadius: 10,
+                    spreadRadius: 2,
                   ),
                 ],
-                color: MyTheme.whiteColor,
+                color: MyTheme.whiteColor.withOpacity(0.8),
                 borderRadius: BorderRadius.circular(24)),
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return ItemHadethDetails(content: args.content[index]);
-              },
-              itemCount: args.content.length,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.play_circle,
+                      size: 32,
+                      color: Colors.black,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      AppLocalizations.of(context)!.hadeth_name,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: Theme.of(context).primaryColor,
+                  thickness: 1.8,
+                  endIndent: 30,
+                  indent: 30,
+                  height: 15,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return ItemHadethDetails(content: args.content[index]);
+                    },
+                    itemCount: args.content.length,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

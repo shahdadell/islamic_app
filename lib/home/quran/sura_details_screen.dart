@@ -6,7 +6,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "sura-detailers";
-  const SuraDetailsScreen({super.key});
+
+  const SuraDetailsScreen({super.key,});
 
   @override
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
@@ -33,7 +34,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              args.name,
+              AppLocalizations.of(context)!.app_title,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
@@ -61,6 +62,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                   child: Column(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Icon(
                             Icons.play_circle,
@@ -69,7 +71,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                           ),
                           const SizedBox(width: 6),
                           Text(
-                            AppLocalizations.of(context)!.sura_name,
+                            args.name,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ],

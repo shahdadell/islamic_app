@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   ///colors , light theme , dark theme
@@ -16,19 +15,19 @@ class MyTheme {
       centerTitle: true,
     ),
     textTheme: TextTheme(
-      titleLarge: GoogleFonts.elMessiri(
-        fontSize: 26,
+      titleLarge: TextStyle(
+        fontSize: 30,
         fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleMedium: GoogleFonts.elMessiri(
-        fontSize: 23,
+      titleMedium: TextStyle(
+        fontSize: 24,
         fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleSmall: GoogleFonts.elMessiri(
-        fontSize: 21,
-        fontWeight: FontWeight.w500,
+      titleSmall: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
         color: blackColor,
       ),
     ),

@@ -24,9 +24,10 @@ class _HadethTapState extends State<HadethTap> {
           Image.asset("assets/images/hadith_header2.png"),
           Divider(
             color: Theme.of(context).primaryColor,
-            thickness: 1.8,
-            endIndent: 5,
-            indent: 5,
+            thickness: 1.6,
+            endIndent: 10,
+            indent: 10,
+            height: 5,
           ),
           Text(
             AppLocalizations.of(context)!.hadeth_name,
@@ -35,8 +36,9 @@ class _HadethTapState extends State<HadethTap> {
           Divider(
             color: Theme.of(context).primaryColor,
             thickness: 1.8,
-            endIndent: 5,
-            indent: 5,
+            endIndent: 10,
+            indent: 10,
+            height: 5,
           ),
           ahadethList.isEmpty
               ? Center(
@@ -46,15 +48,16 @@ class _HadethTapState extends State<HadethTap> {
                 )
               : Expanded(
                   child: ListView.separated(
-                    separatorBuilder: (context, index) {
+                    itemCount: ahadethList.length,
+                    separatorBuilder: (BuildContext context, int index) {
                       return Divider(
                         color: Theme.of(context).primaryColor,
-                        thickness: 2,
-                        endIndent: 55,
-                        indent: 55,
+                        thickness: 1.8,
+                        endIndent: 60,
+                        indent: 60,
+                        height: 5,
                       );
                     },
-                    itemCount: ahadethList.length,
                     itemBuilder: (context, index) {
                       return ItemHadethName( hadeth: ahadethList[index],);
                     },

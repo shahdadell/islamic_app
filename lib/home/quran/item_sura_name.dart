@@ -3,9 +3,9 @@ import 'package:islamic_app/home/quran/sura_details_screen.dart';
 
 class ItemSuraName extends StatelessWidget {
   String name;
-
+  String num;
   int index;
-  ItemSuraName({super.key, required this.name, required this.index});
+  ItemSuraName({super.key, required this.name, required this.index,required this.num});
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +30,13 @@ class ItemSuraName extends StatelessWidget {
             height: 45,
             color:  Theme.of(context).primaryColor,
           ),
-          // Expanded(
-          //   child: Text(
-          //     style: Theme.of(context).textTheme.titleMedium,
-          //     textAlign: TextAlign.center,
-          //   ),
-          // ),
+          Expanded(
+            child: Text(
+              num,
+              style: Theme.of(context).textTheme.titleMedium,
+              textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );
