@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic_app/my_theme.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_config_provider.dart';
 import 'item_sura_name.dart';
 
 class QuranTab extends StatelessWidget {
@@ -123,12 +126,15 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Center(
       child: Column(
         children: [
           Image.asset("assets/images/quranlogo2.png"),
           Divider(
-            color: Theme.of(context).primaryColor,
+            color: provider.isLightMode()?
+            Theme.of(context).primaryColor:
+            MyTheme.yellowColors,
             thickness: 1.8,
             endIndent: 10,
             indent: 10,
@@ -146,7 +152,9 @@ class QuranTab extends StatelessWidget {
               Container(
                 width: 1.5,
                 height: 45,
-                color: Theme.of(context).primaryColor,
+                color: provider.isLightMode()?
+                Theme.of(context).primaryColor:
+                MyTheme.yellowColors,
               ),
               Expanded(
                 child: Text(
@@ -158,7 +166,9 @@ class QuranTab extends StatelessWidget {
             ],
           ),
           Divider(
-            color: Theme.of(context).primaryColor,
+            color: provider.isLightMode()?
+            Theme.of(context).primaryColor:
+            MyTheme.yellowColors,
             thickness: 1.8,
             endIndent: 10,
             indent: 10,

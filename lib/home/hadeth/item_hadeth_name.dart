@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islamic_app/home/hadeth/hadeth_details_screen.dart';
 import 'package:islamic_app/home/hadeth/hadeth_tap.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/app_config_provider.dart';
 
 class ItemHadethName extends StatelessWidget {
   Hadeth hadeth;
@@ -8,6 +11,8 @@ class ItemHadethName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
