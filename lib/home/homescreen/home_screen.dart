@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
-
     var mediaQuery2 = MediaQuery.of(context).size;
     return Stack(
       children: [

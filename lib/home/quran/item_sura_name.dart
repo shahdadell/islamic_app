@@ -9,7 +9,8 @@ class ItemSuraName extends StatelessWidget {
   String name;
   String num;
   int index;
-  ItemSuraName({super.key, required this.name, required this.index,required this.num});
+  ItemSuraName(
+      {super.key, required this.name, required this.index, required this.num});
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +28,16 @@ class ItemSuraName extends StatelessWidget {
           Expanded(
             child: Text(
               name,
-              style:
-              Theme.of(context).textTheme.titleSmall,
+              style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.center,
             ),
           ),
           Container(
             width: 1.5,
             height: 45,
-            color: provider.isLightMode()?
-            Theme.of(context).primaryColor:
-            MyTheme.yellowColors,
+            color: provider.isLightMode()
+                ? Theme.of(context).primaryColor
+                : MyTheme.yellowColors,
           ),
           Expanded(
             child: Text(

@@ -35,6 +35,16 @@ class MyTheme {
         fontWeight: FontWeight.w600,
         color: blackColor,
       ),
+      bodySmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: blackColor,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w600,
+        color: whiteColor,
+      ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedLabelStyle: const TextStyle(
@@ -70,6 +80,16 @@ class MyTheme {
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: whiteColor,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: whiteColor,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w600,
+        color: blackColor,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

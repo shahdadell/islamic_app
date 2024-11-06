@@ -14,24 +14,27 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        GestureDetector(
-            onTap: () {
-              provider.changeTheme(ThemeMode.light);
-            },
-            child: provider.isLightMode()
-                ? getSelectedItemWidget(AppLocalizations.of(context)!.light)
-                : getUnSelectedItemWidget(AppLocalizations.of(context)!.light)),
-        GestureDetector(
-            onTap: () {
-              provider.changeTheme(ThemeMode.dark);
-            },
-            child: provider.isLightMode()
-                ? getUnSelectedItemWidget(AppLocalizations.of(context)!.dark)
-                : getSelectedItemWidget(AppLocalizations.of(context)!.dark)),
-      ],
+    return Container(
+      height: 170,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          GestureDetector(
+              onTap: () {
+                provider.changeTheme(ThemeMode.light);
+              },
+              child: provider.isLightMode()
+                  ? getSelectedItemWidget(AppLocalizations.of(context)!.light)
+                  : getUnSelectedItemWidget(AppLocalizations.of(context)!.light)),
+          GestureDetector(
+              onTap: () {
+                provider.changeTheme(ThemeMode.dark);
+              },
+              child: provider.isLightMode()
+                  ? getUnSelectedItemWidget(AppLocalizations.of(context)!.dark)
+                  : getSelectedItemWidget(AppLocalizations.of(context)!.dark)),
+        ],
+      ),
     );
   }
 

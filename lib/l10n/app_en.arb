@@ -14,6 +14,7 @@
   "dark" : "Dark" ,
   "theme" : "Theme",
   "language" : "Language",
-  "holy_quran_radio" : "Holy Quran Radio"
+  "holy_quran_radio" : "Holy Quran Radio",
+  "number_of_hymns" : "Number of hymns"
 
 }

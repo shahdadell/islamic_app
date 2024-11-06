@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamic_app/home/settings/language_bottom_sheet.dart';
 import 'package:islamic_app/home/settings/theme_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import '../../my_theme.dart';
 import '../provider/app_config_provider.dart';
 
 class SettingTab extends StatefulWidget {
@@ -45,7 +46,12 @@ class _SettingTabState extends State<SettingTab> {
                         : AppLocalizations.of(context)!.arabic,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const Icon(Icons.arrow_drop_down),
+                  Icon(Icons.arrow_drop_down,
+                    size: 30,
+                    color: provider.isLightMode()?
+                    MyTheme.primaryDark:
+                    MyTheme.yellowColors,
+                  ),
                 ],
               ),
             ),
@@ -74,7 +80,12 @@ class _SettingTabState extends State<SettingTab> {
                         : AppLocalizations.of(context)!.dark,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const Icon(Icons.arrow_drop_down),
+                  Icon(Icons.arrow_drop_down,
+                    size: 30,
+                    color: provider.isLightMode()?
+                    MyTheme.primaryDark:
+                    MyTheme.yellowColors,
+                  ),
                 ],
               ),
             ),

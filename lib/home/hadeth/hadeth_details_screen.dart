@@ -73,7 +73,7 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
                       Icons.play_circle,
                       size: 32,
                       color: provider.isLightMode()
-                          ? MyTheme.whiteColor
+                          ? MyTheme.blackColor
                           : MyTheme.yellowColors,
                     ),
                     const SizedBox(width: 10),

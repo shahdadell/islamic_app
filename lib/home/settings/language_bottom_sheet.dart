@@ -15,27 +15,30 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        GestureDetector(
-          onTap: (){
-            provider.changeLanguage("en");
-          },
-          child: provider.appLanguage=="en"?
-          getSelectedItemWidget(AppLocalizations.of(context)!.english):
-              getUnSelectedItemWidget(AppLocalizations.of(context)!.english)
-        ),
-        GestureDetector(
-          onTap: (){
-            provider.changeLanguage("ar");
-          },
-            child: provider.appLanguage=="ar"?
-            getSelectedItemWidget(AppLocalizations.of(context)!.arabic):
-            getUnSelectedItemWidget(AppLocalizations.of(context)!.arabic)
-        ),
+    return Container(
+      height: 170,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          GestureDetector(
+            onTap: (){
+              provider.changeLanguage("en");
+            },
+            child: provider.appLanguage=="en"?
+            getSelectedItemWidget(AppLocalizations.of(context)!.english):
+                getUnSelectedItemWidget(AppLocalizations.of(context)!.english)
+          ),
+          GestureDetector(
+            onTap: (){
+              provider.changeLanguage("ar");
+            },
+              child: provider.appLanguage=="ar"?
+              getSelectedItemWidget(AppLocalizations.of(context)!.arabic):
+              getUnSelectedItemWidget(AppLocalizations.of(context)!.arabic)
+          ),
 
-      ],
+        ],
+      ),
     );
   }
 
@@ -52,7 +55,8 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
               color: Theme.of(context).primaryColor,
             ),
           ),
-          Icon(Icons.check,
+          Icon(
+            Icons.check,
             color: Theme.of(context).primaryColor,
             size: 30,
           ),
