@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamic_app/home/settings/setting_tab.dart';
+import 'package:provider/provider.dart';
 import '../hadeth/hadeth_tap.dart';
+import '../provider/app_config_provider.dart';
 import '../quran/quran_tab.dart';
 import '../radio/radio_tap.dart';
 import '../sebha/sebha_tap.dart';
@@ -20,11 +22,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     var mediaQuery2 = MediaQuery.of(context).size;
     return Stack(
       children: [
+        provider.isLightMode()?
         Image.asset(
           "assets/images/background.png",
+          width: mediaQuery2.width,
+          height: mediaQuery2.height,
+          fit: BoxFit.cover,
+        ):
+        Image.asset(
+          "assets/images/dark_bg.png",
           width: mediaQuery2.width,
           height: mediaQuery2.height,
           fit: BoxFit.cover,

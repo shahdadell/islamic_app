@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic_app/home/hadeth/item_hadeth_name.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../../my_theme.dart';
+import '../provider/app_config_provider.dart';
 
 class HadethTap extends StatefulWidget {
   const HadethTap({super.key});
@@ -15,6 +18,8 @@ class _HadethTapState extends State<HadethTap> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     if (ahadethList.isEmpty) {
       loadHadethFile();
     }
@@ -23,7 +28,9 @@ class _HadethTapState extends State<HadethTap> {
         children: [
           Image.asset("assets/images/hadith_header2.png"),
           Divider(
-            color: Theme.of(context).primaryColor,
+            color: provider.isLightMode()
+                ? Theme.of(context).primaryColor
+                : MyTheme.yellowColors,
             thickness: 1.6,
             endIndent: 10,
             indent: 10,
@@ -34,7 +41,9 @@ class _HadethTapState extends State<HadethTap> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           Divider(
-            color: Theme.of(context).primaryColor,
+            color: provider.isLightMode()
+                ? Theme.of(context).primaryColor
+                : MyTheme.yellowColors,
             thickness: 1.8,
             endIndent: 10,
             indent: 10,
@@ -51,7 +60,9 @@ class _HadethTapState extends State<HadethTap> {
                     itemCount: ahadethList.length,
                     separatorBuilder: (BuildContext context, int index) {
                       return Divider(
-                        color: Theme.of(context).primaryColor,
+                        color: provider.isLightMode()
+                            ? Theme.of(context).primaryColor
+                            : MyTheme.yellowColors,
                         thickness: 1.8,
                         endIndent: 60,
                         indent: 60,
@@ -59,7 +70,9 @@ class _HadethTapState extends State<HadethTap> {
                       );
                     },
                     itemBuilder: (context, index) {
-                      return ItemHadethName( hadeth: ahadethList[index],);
+                      return ItemHadethName(
+                        hadeth: ahadethList[index],
+                      );
                     },
                   ),
                 ),

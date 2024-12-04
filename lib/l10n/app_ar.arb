@@ -14,6 +14,7 @@
   "dark" : "ليلي" ,
   "theme" : "النمط",
   "language" : "اللغة",
-  "holy_quran_radio" : "إذاعة القرآن الكريم"
+  "holy_quran_radio" : "إذاعة القرآن الكريم",
+  "number_of_hymns": "عدد التسبيحات"
 
 }

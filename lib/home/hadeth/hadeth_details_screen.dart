@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import '../../my_theme.dart';
+import '../provider/app_config_provider.dart';
 import 'hadeth_tap.dart';
 import 'item_hadeth_details.dart';
 
 class HadethDetailsScreen extends StatefulWidget {
   static const String routeName = "hadeth-detailers";
   const HadethDetailsScreen({super.key});
-
 
   @override
   State<HadethDetailsScreen> createState() => _HadethDetailsScreenState();
@@ -18,29 +19,35 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
     var mediaQuery2 = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Image.asset(
-          "assets/images/background.png",
-
-          width: mediaQuery2.width,
-          height: mediaQuery2.height,
-          fit: BoxFit.cover,
-        ),
+        provider.isLightMode()
+            ? Image.asset(
+                "assets/images/background.png",
+                width: mediaQuery2.width,
+                height: mediaQuery2.height,
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                "assets/images/dark_bg.png",
+                width: mediaQuery2.width,
+                height: mediaQuery2.height,
+                fit: BoxFit.cover,
+              ),
         Scaffold(
           appBar: AppBar(
             title: Text(
-              args.title,
+              AppLocalizations.of(context)!.app_title,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          body:Container(
-            margin: const EdgeInsets.only(
-                left: 30, right: 30, top: 30, bottom: 60),
-            padding:
-            const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          body: Container(
+            margin:
+                const EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 60),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
@@ -53,27 +60,37 @@ class _HadethDetailsScreenState extends State<HadethDetailsScreen> {
                     spreadRadius: 2,
                   ),
                 ],
-                color: MyTheme.whiteColor.withOpacity(0.8),
+                color: provider.isLightMode()
+                    ? MyTheme.whiteColor.withOpacity(0.8)
+                    : MyTheme.primaryDark.withOpacity(0.8),
                 borderRadius: BorderRadius.circular(24)),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.play_circle,
                       size: 32,
-                      color: Colors.black,
+                      color: provider.isLightMode()
+                          ? MyTheme.blackColor
+                          : MyTheme.yellowColors,
                     ),
-                    const SizedBox(width: 6),
+                    const SizedBox(width: 10),
                     Text(
-                      AppLocalizations.of(context)!.hadeth_name,
-                      style: Theme.of(context).textTheme.titleMedium,
+                      args.title,
+                      style: provider.isLightMode()
+                          ? Theme.of(context).textTheme.titleMedium
+                          : Theme.of(context).textTheme.titleMedium!.copyWith(
+                                color: MyTheme.yellowColors,
+                              ),
                     ),
                   ],
                 ),
                 Divider(
-                  color: Theme.of(context).primaryColor,
+                  color: provider.isLightMode()
+                      ? Theme.of(context).primaryColor
+                      : MyTheme.yellowColors,
                   thickness: 1.8,
                   endIndent: 30,
                   indent: 30,

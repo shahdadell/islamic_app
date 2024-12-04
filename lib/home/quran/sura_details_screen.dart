@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import '../../my_theme.dart';
+import '../provider/app_config_provider.dart';
 import 'item_sura_details.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "sura-detailers";
 
-  const SuraDetailsScreen({super.key,});
+  const SuraDetailsScreen({
+    super.key,
+  });
 
   @override
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
@@ -18,6 +22,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
     if (verses.isEmpty) {
       loadFile(args.index);
@@ -25,12 +30,19 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     var mediaQuery2 = MediaQuery.of(context).size;
     return Stack(
       children: [
-        Image.asset(
-          "assets/images/background.png",
-          width: mediaQuery2.width,
-          height: mediaQuery2.height,
-          fit: BoxFit.cover,
-        ),
+        provider.isLightMode()
+            ? Image.asset(
+                "assets/images/background.png",
+                width: mediaQuery2.width,
+                height: mediaQuery2.height,
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                "assets/images/dark_bg.png",
+                width: mediaQuery2.width,
+                height: mediaQuery2.height,
+                fit: BoxFit.cover,
+              ),
         Scaffold(
           appBar: AppBar(
             title: Text(
@@ -57,27 +69,40 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                           spreadRadius: 2,
                         ),
                       ],
-                      color: MyTheme.whiteColor.withOpacity(0.8),
+                      color: provider.isLightMode()
+                          ? MyTheme.whiteColor.withOpacity(0.8)
+                          : MyTheme.primaryDark.withOpacity(0.8),
                       borderRadius: BorderRadius.circular(24)),
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.play_circle,
                             size: 32,
-                            color: Colors.black,
+                            color: provider.isLightMode()
+                                ? MyTheme.blackColor
+                                : MyTheme.yellowColors,
                           ),
-                          const SizedBox(width: 6),
+                          const SizedBox(width: 10),
                           Text(
                             args.name,
-                            style: Theme.of(context).textTheme.titleMedium,
+                            style: provider.isLightMode()
+                                ? Theme.of(context).textTheme.titleLarge
+                                : Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      color: MyTheme.yellowColors,
+                                    ),
                           ),
                         ],
                       ),
                       Divider(
-                        color: Theme.of(context).primaryColor,
+                        color: provider.isLightMode()
+                            ? Theme.of(context).primaryColor
+                            : MyTheme.yellowColors,
                         thickness: 1.8,
                         endIndent: 30,
                         indent: 30,
