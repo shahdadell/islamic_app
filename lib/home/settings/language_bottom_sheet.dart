@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/app_config_provider.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
@@ -16,7 +15,8 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
     return Container(
-      height: 170,
+      padding: EdgeInsets.all(8),
+      height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -46,7 +46,6 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(

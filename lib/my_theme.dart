@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   ///colors , light theme , dark theme
@@ -20,34 +21,34 @@ class MyTheme {
       ),
     ),
     textTheme: TextTheme(
-      titleLarge: TextStyle(
+      titleLarge: GoogleFonts.elMessiri(
         fontSize: 30,
         fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleMedium: TextStyle(
+      titleMedium: GoogleFonts.elMessiri(
         fontSize: 24,
         fontWeight: FontWeight.bold,
         color: blackColor,
       ),
-      titleSmall: TextStyle(
-        fontSize: 22,
+      titleSmall: GoogleFonts.elMessiri(
+        fontSize: 23,
         fontWeight: FontWeight.w600,
         color: blackColor,
       ),
-      bodySmall: TextStyle(
+      bodySmall: GoogleFonts.elMessiri(
         fontSize: 25,
         fontWeight: FontWeight.w400,
         color: blackColor,
       ),
-      bodyMedium: TextStyle(
+      bodyMedium: GoogleFonts.elMessiri(
         fontSize: 25,
         fontWeight: FontWeight.w600,
         color: whiteColor,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedLabelStyle: const TextStyle(
+      selectedLabelStyle: GoogleFonts.elMessiri(
         fontSize: 19,
       ),
       selectedItemColor: blackColor,
@@ -66,34 +67,34 @@ class MyTheme {
       ),
     ),
     textTheme: TextTheme(
-      titleLarge: TextStyle(
+      titleLarge: GoogleFonts.elMessiri(
         fontSize: 30,
         fontWeight: FontWeight.bold,
         color: whiteColor,
       ),
-      titleMedium: TextStyle(
+      titleMedium: GoogleFonts.elMessiri(
         fontSize: 24,
         fontWeight: FontWeight.bold,
         color: whiteColor,
       ),
-      titleSmall: TextStyle(
-        fontSize: 22,
+      titleSmall: GoogleFonts.elMessiri(
+        fontSize: 23,
         fontWeight: FontWeight.w600,
         color: whiteColor,
       ),
-      bodySmall: TextStyle(
+      bodySmall: GoogleFonts.elMessiri(
         fontSize: 25,
         fontWeight: FontWeight.w400,
         color: whiteColor,
       ),
-      bodyMedium: TextStyle(
+      bodyMedium: GoogleFonts.elMessiri(
         fontSize: 25,
         fontWeight: FontWeight.w600,
         color: blackColor,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedLabelStyle: const TextStyle(
+      selectedLabelStyle: GoogleFonts.elMessiri(
         fontSize: 19,
       ),
       selectedItemColor: yellowColors,

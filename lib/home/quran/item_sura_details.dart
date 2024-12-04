@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../my_theme.dart';
 import '../provider/app_config_provider.dart';
 
@@ -20,8 +19,8 @@ class ItemSuraDetails extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: provider.isLightMode()
-            ? Theme.of(context).textTheme.titleMedium
-            : Theme.of(context).textTheme.titleMedium!.copyWith(
+            ? Theme.of(context).textTheme.titleSmall
+            : Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: MyTheme.yellowColors,
                 ),
       ),

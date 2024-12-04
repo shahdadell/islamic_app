@@ -28,14 +28,23 @@ class _SettingTabState extends State<SettingTab> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 15),
-          InkWell(
+          GestureDetector(
             onTap: () {
               showLanguageBottomSheet();
             },
             child: Container(
-              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  border: Border.all(
+                    width: 2.5,
+                    color: provider.isLightMode()
+                        ? MyTheme.primaryLight
+                        : MyTheme.yellowColors,
+                  ),
+                  color: provider.isLightMode()
+                      ? MyTheme.whiteColor
+                      : MyTheme.primaryDark,
                   borderRadius: BorderRadius.circular(15)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,11 +55,12 @@ class _SettingTabState extends State<SettingTab> {
                         : AppLocalizations.of(context)!.arabic,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  Icon(Icons.arrow_drop_down,
+                  Icon(
+                    Icons.arrow_drop_down,
                     size: 30,
-                    color: provider.isLightMode()?
-                    MyTheme.primaryDark:
-                    MyTheme.yellowColors,
+                    color: provider.isLightMode()
+                        ? MyTheme.primaryDark
+                        : MyTheme.yellowColors,
                   ),
                 ],
               ),
@@ -62,14 +72,23 @@ class _SettingTabState extends State<SettingTab> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 15),
-          InkWell(
+          GestureDetector(
             onTap: () {
               showThemeBottomSheet();
             },
             child: Container(
-              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  border: Border.all(
+                    width: 2.5,
+                    color: provider.isLightMode()
+                        ? MyTheme.primaryLight
+                        : MyTheme.yellowColors,
+                  ),
+                  color: provider.isLightMode()
+                      ? MyTheme.whiteColor
+                      : MyTheme.primaryDark,
                   borderRadius: BorderRadius.circular(15)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,11 +99,12 @@ class _SettingTabState extends State<SettingTab> {
                         : AppLocalizations.of(context)!.dark,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  Icon(Icons.arrow_drop_down,
+                  Icon(
+                    Icons.arrow_drop_down,
                     size: 30,
-                    color: provider.isLightMode()?
-                    MyTheme.primaryDark:
-                    MyTheme.yellowColors,
+                    color: provider.isLightMode()
+                        ? MyTheme.primaryDark
+                        : MyTheme.yellowColors,
                   ),
                 ],
               ),
@@ -101,6 +121,7 @@ class _SettingTabState extends State<SettingTab> {
       builder: (context) => const LanguageBottomSheet(),
     );
   }
+
   void showThemeBottomSheet() {
     showModalBottomSheet(
       context: context,

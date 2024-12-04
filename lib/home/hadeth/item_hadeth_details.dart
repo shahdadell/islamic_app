@@ -20,10 +20,11 @@ class ItemHadethDetails extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: provider.isLightMode()
-            ? Theme.of(context).textTheme.titleMedium
+            ? Theme.of(context).textTheme.titleSmall
             : Theme.of(context).textTheme.titleMedium!.copyWith(
-          color: MyTheme.yellowColors,
-        ),      ),
+                  color: MyTheme.yellowColors,
+                ),
+      ),
     );
   }
 }
